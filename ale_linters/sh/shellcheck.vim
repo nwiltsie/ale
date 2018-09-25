@@ -27,11 +27,11 @@ function! ale_linters#sh#shellcheck#GetDialectArgument(buffer) abort
     endif
 
     " If there's no hashbang, try using Vim's buffer variables.
-    if getbufvar(a:buffer, 'is_bash', 0)
+    if getbufvar(a:buffer, 'is_bash', 1)
         return 'bash'
-    elseif getbufvar(a:buffer, 'is_sh', 0)
+    elseif getbufvar(a:buffer, 'is_sh', 1)
         return 'sh'
-    elseif getbufvar(a:buffer, 'is_kornshell', 0)
+    elseif getbufvar(a:buffer, 'is_kornshell', 1)
         return 'ksh'
     endif
 
